@@ -8,6 +8,8 @@ package com.day37;
  * 
  * UC3:- Ability to edit existing contact person using their name
  * 
+ * UC4:- Ability to delete a person using person's name
+ * 
  */
 
 /**
