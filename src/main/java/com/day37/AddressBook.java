@@ -8,6 +8,11 @@ public class AddressBook {
 	 * create an arraylist of contact
 	 */
 	private ArrayList<Contact> addressList = new ArrayList<Contact>();
+	private String name;
+
+	public AddressBook(String name) {
+		this.name = name;
+	}
 
 	/**
 	 * creating getter setter methods creating parameterized method named as
@@ -26,6 +31,19 @@ public class AddressBook {
 	 */
 	public ArrayList<Contact> getAddressList() {
 		return addressList;
+	}
+
+	/**
+	 * getter setter method for Name
+	 * 
+	 * @param name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	/**
