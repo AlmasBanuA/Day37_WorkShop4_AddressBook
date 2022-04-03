@@ -3,6 +3,9 @@ package com.day37;
 /**
  * UC1:- Ability to create a Contacts in Address Book with first and last names,
  * address, city, state, zip, phone number and email...
+ * 
+ * UC2:- Ability to add a new Contact to Address Book
+ * 
  */
 
 /**
@@ -10,6 +13,7 @@ package com.day37;
  */
 import java.util.Scanner;
 
+import com.day37.AddressBook;
 import com.day37.Contact;
 import com.day37.ContactService;
 
@@ -24,6 +28,7 @@ public class Executor {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Address Book Program");
 		System.out.println("--------------------------------");
+		AddressBook addressBook = new AddressBook();
 		ContactService contactService = new ContactService(sc);
 		Contact contact = new Contact();
 
@@ -31,6 +36,13 @@ public class Executor {
 		 * calling a method createPerson to take the input from console
 		 */
 		contactService.createPerson(contact, sc);
-		System.out.println(contact);
+		System.out.println(contact + "\n");
+
+		/**
+		 * calling a method addContact to add the contacts in the addressBook
+		 */
+		addressBook.addContact(contact);
+		System.out.println("Contact is added to addressBook");
+
 	}
 }
