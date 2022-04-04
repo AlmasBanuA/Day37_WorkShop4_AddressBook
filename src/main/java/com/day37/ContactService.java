@@ -65,12 +65,6 @@ public class ContactService {
 			}
 		}
 
-		String name = firstName + " " + lastName;
-		boolean duplicate = addressBook.isExistAlready(name);
-		if (duplicate) {
-			return null;
-		}
-
 		System.out.println("address:");
 		while (true) {
 			try {

@@ -22,6 +22,9 @@ package com.day37;
  * UC8:- Ability to search Person in a City or State across the multiple AddressBook
  * 
  * UC9:- Ability to view Persons by City or State
+ * 
+ * UC10:- Ability to get number of contact persons i.e. count by City or State
+		- Search Result will show count by city and by state by using java streams
  */
 
 /**
@@ -74,11 +77,13 @@ public class Executor {
 		}
 		System.out.print("No addres book found\n");
 	}
-	 /**
-	  * method to search a person by city that is present in the MultipleAddressBook
-	  * @param addressBooks
-	  * @param sc
-	  */
+
+	/**
+	 * method to search a person by city that is present in the MultipleAddressBook
+	 * 
+	 * @param addressBooks
+	 * @param sc
+	 */
 	public static void searchByCity(MultipleAddressBook addressBooks, Scanner sc) {
 		System.out.println("Enter the city:");
 		String city = sc.nextLine();
@@ -90,12 +95,17 @@ public class Executor {
 				count++;
 			}
 		}
-		if (count==1)
+		if (count == 1) {
 			System.out.println("Not found");
+			return;
+		}
+		count--;
+		System.out.println("Count of Persons from given City: " + count);
 	}
-	
+
 	/**
 	 * method to search a person by state that is present in the MultipleAddressBook
+	 * 
 	 * @param addressBooks
 	 * @param sc
 	 */
@@ -104,14 +114,18 @@ public class Executor {
 		String state = sc.nextLine();
 		System.out.println("Contact for given state:");
 		int count = 1;
-		for (Contact contact: addressBooks.searchByState(state)) {
-			if (contact!=null) {
-				System.out.println(count+"\n"+contact+"\n");
+		for (Contact contact : addressBooks.searchByState(state)) {
+			if (contact != null) {
+				System.out.println(count + "\n" + contact + "\n");
 				count++;
 			}
 		}
-		if (count==1)
+		if (count == 1) {
 			System.out.println("Not found");
+			return;
+		}
+		count--;
+		System.out.println("Count of Persons from given State: " + count);
 	}
 
 	/**
