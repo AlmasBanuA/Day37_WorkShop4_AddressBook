@@ -84,6 +84,20 @@ public class AddressBook {
 	}
 	
 	/**
+	 * method to search a person by State created in the arraylist of contact
+	 * @param state
+	 * @return
+	 */
+	public ArrayList<Contact> searchByState(String state) {
+		ArrayList<Contact> list = new ArrayList<Contact>();
+		for (int i = 0; i < addressList.size(); ++i) {
+			if (addressList.get(i).getState().equalsIgnoreCase(state))
+				list.add(addressList.get(i));
+		}
+		return list;
+	}
+
+	/**
 	 * method to delete contact in the addressBook
 	 * 
 	 * @param name

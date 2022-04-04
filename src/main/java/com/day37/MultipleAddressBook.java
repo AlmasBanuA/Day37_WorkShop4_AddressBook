@@ -61,4 +61,20 @@ public class MultipleAddressBook {
 		}
 		return list.stream().filter(contact -> contact != null).distinct().collect(Collectors.toList());
 	}
+	
+	/**
+	 * method to search a person by State created in the arraylist of contact
+	 * @param state
+	 * @return
+	 */
+	public List<Contact> searchByState(String state) {
+		List<Contact> list = new ArrayList<Contact>();
+		for (Map.Entry entry: addressBooks.entrySet()) {
+			List<Contact> contactList = ((AddressBook)entry.getValue()).searchByState(state);
+			for (Contact contact: contactList) {
+				list.add(contact);
+			}
+		}
+		return list.stream().filter(contact->contact!= null).distinct().collect(Collectors.toList());
+	}
 }

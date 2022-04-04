@@ -20,6 +20,8 @@ package com.day37;
  * Address Book
  * 
  * UC8:- Ability to search Person in a City or State across the multiple AddressBook
+ * 
+ * UC9:- Ability to view Persons by City or State
  */
 
 /**
@@ -88,6 +90,28 @@ public class Executor {
 				count++;
 			}
 		}
+		if (count==1)
+			System.out.println("Not found");
+	}
+	
+	/**
+	 * method to search a person by state that is present in the MultipleAddressBook
+	 * @param addressBooks
+	 * @param sc
+	 */
+	public static void searchByState(MultipleAddressBook addressBooks, Scanner sc) {
+		System.out.println("Enter the state:");
+		String state = sc.nextLine();
+		System.out.println("Contact for given state:");
+		int count = 1;
+		for (Contact contact: addressBooks.searchByState(state)) {
+			if (contact!=null) {
+				System.out.println(count+"\n"+contact+"\n");
+				count++;
+			}
+		}
+		if (count==1)
+			System.out.println("Not found");
 	}
 
 	/**
