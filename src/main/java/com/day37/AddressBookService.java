@@ -62,9 +62,18 @@ public class AddressBookService {
 	 * method to Create the contact in the addressBook
 	 */
 	public void createContact() {
-		addressBook.addContact(contactService.createContact());
+		Contact contact = contactService.createContact();
+		if (contact == null) {
+			System.out.println("Already exist in Address Book");
+			return;
+		}
+		addressBook.addContact(contact);
 	}
 
+	/**
+	 * method to choose options of addressBook
+	 * @param addressBook
+	 */
 	public void addressBookOptions(AddressBook addressBook) {
 		this.addressBook = addressBook;
 		contactService = new ContactService(sc);

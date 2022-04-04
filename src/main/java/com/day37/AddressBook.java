@@ -104,4 +104,15 @@ public class AddressBook {
 			return "\nNo contact found";
 		return str.toString();
 	}
+	
+	/**
+	 * method to check contacts is already exist or not
+	 * @param name
+	 * @return
+	 */
+	public boolean isExistAlready(String name) {
+		int count = (int) addressList.stream().filter(contact->contact.equals(name)).count();
+		System.out.println("address:");
+		return count!=0;
+	}
 }

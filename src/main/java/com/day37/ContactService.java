@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ContactService {
 	private Scanner sc;
+	private AddressBook addressBook;
 	private Validator validator;
 
 	/**
@@ -13,6 +14,7 @@ public class ContactService {
 	 */
 	public ContactService(Scanner sc) {
 		this.sc = sc;
+		this.addressBook = addressBook;
 		this.validator = new Validator();
 	}
 
@@ -62,11 +64,17 @@ public class ContactService {
 				System.out.println(e.getMessage());
 			}
 		}
+
+		String name = firstName + " " + lastName;
+		boolean duplicate = addressBook.isExistAlready(name);
+		if (duplicate) {
+			return null;
+		}
+
 		System.out.println("address:");
 		while (true) {
 			try {
 				address = sc.nextLine();
-
 				/**
 				 * calling a method to validate Address it will check it will match or not if
 				 * not matched then throws exception
@@ -78,6 +86,7 @@ public class ContactService {
 				System.out.println(e.getMessage());
 			}
 		}
+
 		System.out.println("city:");
 		while (true) {
 			try {
