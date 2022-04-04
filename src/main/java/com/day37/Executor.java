@@ -18,6 +18,8 @@ package com.day37;
 
  * UC7:- Ability to ensure there is no Duplicate Entry of the same Person in a particular
  * Address Book
+ * 
+ * UC8:- Ability to search Person in a City or State across the multiple AddressBook
  */
 
 /**
@@ -69,6 +71,23 @@ public class Executor {
 			return;
 		}
 		System.out.print("No addres book found\n");
+	}
+	 /**
+	  * method to search a person by city that is present in the MultipleAddressBook
+	  * @param addressBooks
+	  * @param sc
+	  */
+	public static void searchByCity(MultipleAddressBook addressBooks, Scanner sc) {
+		System.out.println("Enter the city:");
+		String city = sc.nextLine();
+		System.out.println("Contact for given city:");
+		int count = 1;
+		for (Contact contact : addressBooks.searchByCity(city)) {
+			if (contact != null) {
+				System.out.println(count + "\n" + contact + "\n");
+				count++;
+			}
+		}
 	}
 
 	/**

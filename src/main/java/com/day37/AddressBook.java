@@ -70,6 +70,20 @@ public class AddressBook {
 	}
 
 	/**
+	 * method to search a person by city created in the arraylist of contact
+	 * @param city
+	 * @return
+	 */
+	public ArrayList<Contact> searchByCity(String city) {
+		ArrayList<Contact> list = new ArrayList<Contact>();
+		for (int i = 0; i < addressList.size(); ++i) {
+			if (addressList.get(i).getCity().equalsIgnoreCase(city))
+				list.add(addressList.get(i));
+		}
+		return list;
+	}
+	
+	/**
 	 * method to delete contact in the addressBook
 	 * 
 	 * @param name
